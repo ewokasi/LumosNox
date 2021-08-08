@@ -18,17 +18,17 @@ def answer(message):
     if message.text.lower() == "lumos":
 
         driver = webdriver.Chrome()
-        driver.get('192.168.1.13')
+        driver.get('http:/192.168.1.13')
         element = driver.find_elements_by_link_text("here")[0].click()
+        driver.close()
 
         bot.send_message(message.chat.id, "Зажигаю")
     if message.text.lower() == "nox":
 
         driver = webdriver.Chrome()
-        driver.get('192.168.1.13')
+        driver.get('http:/192.168.1.13')
         element = driver.find_elements_by_link_text("here")[1].click()
-
+        driver.close()
         bot.send_message(message.chat.id, "Тушу свет")
-
 
 bot.polling(none_stop=True)
